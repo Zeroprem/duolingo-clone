@@ -60,24 +60,29 @@ const LeaderboardPage = async () => {
           </p>
 
           <Separator className="mb-4 h-0.5 rounded-full" />
-          {leaderboard.map((userProgress, i) => (
+          {leaderboard.map((user, i) => (
             <div
-              key={userProgress.userId}
+              key={user.userId}
               className="flex w-full items-center rounded-xl p-2 px-4 hover:bg-gray-200/50"
             >
               <p className="mr-4 font-bold text-lime-700">{i + 1}</p>
 
               <Avatar className="ml-3 mr-6 h-12 w-12 border bg-green-500">
                 <AvatarImage
-                  src={userProgress.userImageSrc}
+                  src={user.userImageSrc}
                   className="object-cover"
                 />
               </Avatar>
 
-              <p className="flex-1 font-bold text-neutral-800">
-                {userProgress.userName}
+              <p className="flex-1 font-bold text-neutral-800 flex items-center">
+                {user.userId=="user_2egw43cJjNRK97I43Q554ayxJM6" && (
+                  <span className="text-sm font-medium bg-green-200 text-green-800 rounded px-2 py-1 mr-2">
+                    Admin
+                  </span>
+                )}
+                {user.userName}
               </p>
-              <p className="text-muted-foreground">{userProgress.points} XP</p>
+              <p className="text-muted-foreground">{user.points} XP</p>
             </div>
           ))}
         </div>
