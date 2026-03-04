@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
@@ -25,6 +26,7 @@ function AppShell({ children }: { children: React.ReactNode }) {
         <HeartsModal />
         <PracticeModal />
         {children}
+        <SpeedInsights />
       </body>
     </html>
   );
