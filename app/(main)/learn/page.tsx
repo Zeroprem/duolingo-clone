@@ -5,6 +5,7 @@ import { Quests } from "@/components/quests";
 import { FeedWrapper } from "@/components/feed-wrapper";
 import { UserProgress } from "@/components/user-progress";
 import { StickyWrapper } from "@/components/sticky-wrapper";
+import { SyllabusPlan } from "@/components/syllabus-plan";
 import { lessons, units as unitsSchema } from "@/db/schema";
 import { 
   getCourseProgress, 
@@ -60,7 +61,14 @@ const LearnPage = async () => {
          {!isPro && (
           <Promo />
         )} 
-         <Quests points={userProgress.points} /> 
+         <Quests points={userProgress.points} />
+         <SyllabusPlan
+          language={userProgress.activeCourse.title}
+          points={userProgress.points}
+          hearts={userProgress.hearts}
+          lessonCompletion={lessonPercentage}
+          hasActiveSubscription={isPro}
+         />
       </StickyWrapper>
       <FeedWrapper>
         <Header title={userProgress.activeCourse.title} />
